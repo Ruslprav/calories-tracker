@@ -20,11 +20,15 @@ document.getElementById('searchBtn').addEventListener('click', () => {
             return;
         }
         const f = data[0];
+        const calories = typeof f.calories === 'number' ? f.calories : 'нет данных';
+        const protein = typeof f.protein_g === 'number' ? f.protein_g : 'нет данных';
+        
         resultDiv.innerHTML = `
             <div class="card">
                 <h3>${f.name}</h3>
-                <p>Калории: ${f.calories} ккал</p>
-                <p>Белки: ${f.protein_g}г | Жиры: ${f.fat_total_g}г</p>
+                <p>Калории: ${calories} ккал</p>
+                <p>Белки: ${protein}г | Жиры: ${f.fat_total_g}г</p>
+                <p style="font-size: 0.8rem; color: gray;">* Данные ограничены бесплатным тарифом API</p>
             </div>`;
     })
     .catch(() => errorDiv.innerHTML = 'Ошибка сети или ключа.');
