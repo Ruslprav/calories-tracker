@@ -5,6 +5,10 @@ document.getElementById('searchBtn').addEventListener('click', () => {
     const resultDiv = document.getElementById('result');
     const errorDiv = document.getElementById('error');
 
+    document.getElementById('foodInput').onkeydown = (e) => {
+        if (e.key === 'Enter') document.getElementById('searchBtn').click();
+    };
+    
     resultDiv.innerHTML = 'Загрузка...';
     errorDiv.innerHTML = '';
 
