@@ -57,3 +57,8 @@ document.getElementById('searchBtn').addEventListener('click', () => {
                 </div>
             </div>`;
         })
+        .catch(() => {
+            errorDiv.innerHTML = 'Ошибка сети или ключа.';
+            resultDiv.innerHTML = '';
+        });
+});
