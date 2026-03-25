@@ -26,18 +26,34 @@ document.getElementById('searchBtn').addEventListener('click', () => {
                 resultDiv.innerHTML = '';
                 return;
             }
+
             const f = data[0];
-            const calories = typeof f.calories === 'number' ? f.calories : 'нет данных';
-            const protein = typeof f.protein_g === 'number' ? f.protein_g : 'нет данных';
+            // Форматируем значения для красоты
+            const calories = typeof f.calories === 'number' ? `${f.calories} ккал` : 'нет данных';
+            const protein = typeof f.protein_g === 'number' ? `${f.protein_g} г` : 'нет данных';
+            const fat = typeof f.fat_total_g === 'number' ? `${f.fat_total_g} г` : 'нет данных';
 
             resultDiv.innerHTML = `
             <div class="card">
-                <h3>${f.name}</h3>
-                <p>Калории: ${calories} ккал</p>
-                <p><b>Белки:</b> ${protein} г</p>
-                <p><b>Жиры:</b> ${f.fat_total_g} г</p>
-                <p style="font-size: 0.8rem; color: gray;">* Данные ограничены бесплатным тарифом API</p>
+                <h3>🥩 ${f.name.toUpperCase()}</h3>
+                
+                <div class="info-row">
+                    <span class="label">🔥 Калории:</span>
+                    <span class="value">${calories}</span>
+                </div>
+                
+                <div class="info-row">
+                    <span class="label">🥚 Белки:</span>
+                    <span class="value">${protein}</span>
+                </div>
+                
+                <div class="info-row">
+                    <span class="label">🥑 Жиры:</span>
+                    <span class="value">${fat}</span>
+                </div>
+
+                <div class="api-notice">
+                    * Ограничение данных Free API
+                </div>
             </div>`;
         })
-        .catch(() => errorDiv.innerHTML = 'Ошибка сети или ключа.');
-});

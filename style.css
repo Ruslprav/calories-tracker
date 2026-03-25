@@ -1,6 +1,117 @@
-body { font-family: sans-serif; background: #f4f7f6; display: flex; justify-content: center; padding-top: 50px; }
-.app { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 350px; }
-input { width: 70%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; }
-button { padding: 10px; background: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer; }
-.card { margin-top: 20px; border-top: 2px solid #eee; padding-top: 15px; }
-.error { color: red; margin-top: 10px; font-size: 0.9rem; }
+@import url('https://fonts.googleapis.com');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: radial-gradient(circle at top right, #e9ecef, #dee2e6);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    padding-top: 100px;
+    color: #212529;
+}
+
+.app {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    width: 100%;
+    max-width: 420px;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 28px;
+    margin-bottom: 30px;
+    text-align: center;
+    background: linear-gradient(90deg, #0984e3, #6c5ce7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.search-box {
+    display: flex;
+    gap: 12px;
+    background: #f8f9fa;
+    padding: 8px;
+    border-radius: 16px;
+    border: 1px solid #e9ecef;
+}
+
+input {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 16px;
+    font-family: inherit;
+}
+
+button {
+    padding: 12px 24px;
+    background: #0984e3;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    background: #00cec9;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,206,201,0.3);
+}
+
+/* Карточка результата */
+.card {
+    margin-top: 30px;
+    padding: 24px;
+    background: #ffffff;
+    border-radius: 20px;
+    border: 1px solid #f1f3f5;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.02);
+    animation: slideUp 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.card h3 {
+    margin: 0 0 20px 0;
+    font-size: 20px;
+    color: #2d3436;
+    border-bottom: 2px solid #f1f3f5;
+    padding-bottom: 10px;
+}
+
+.nutrient-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    padding: 8px 0;
+    border-bottom: 1px dashed #edeff1;
+}
+
+.nutrient-item:last-child { border: none; }
+
+.label { color: #636e72; font-weight: 500; }
+.value { color: #2d3436; font-weight: 700; }
+
+.info-tag {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 6px 12px;
+    background: #fff9db;
+    color: #f08c00;
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 6px;
+    text-transform: uppercase;
+}
