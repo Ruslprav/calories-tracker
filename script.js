@@ -8,7 +8,7 @@ document.getElementById('searchBtn').addEventListener('click', () => {
     resultDiv.innerHTML = 'Загрузка...';
     errorDiv.innerHTML = '';
 
-    fetch(`https://api.api-ninjas.com{query}`, {
+    fetch(`https://api.api-ninjas.com/v1/nutrition?query=${query}`, {
         method: 'GET',
         headers: { 'X-Api-Key': apiKey }
     })
